@@ -1,0 +1,11 @@
+set number
+set nocompatible
+set hidden
+set nocp
+filetype plugin on
+set path+=~\AppData\Local\nvim\
+
+lua require('plugins')
+
+set background=dark
+colorscheme gruvbox
