@@ -1,5 +1,4 @@
 local dap = require('dap')
-local python_path = "C:\\Users\\milk\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
 dap.adapters.python = function(cb, config)
   if config.request == 'attach' then
     ---@diagnostic disable-next-line: undefined-field
@@ -17,7 +16,7 @@ dap.adapters.python = function(cb, config)
   else
     cb({
       type = 'executable',
-      command = python_path,
+      command = '/bin/python',
       args = { '-m', 'debugpy.adapter' },
       options = {
         source_filetype = 'python',
@@ -41,12 +40,12 @@ dap.configurations.python = {
       -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
       -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
       local cwd = vim.fn.getcwd()
-      if vim.fn.executable(cwd .. python_path) == 1 then
-        return cwd .. python_path
-      elseif vim.fn.executable(cwd .. python_path) == 1 then
-        return cwd .. python_path
+      if vim.fn.executable(cwd .. '/bin/python') == 1 then
+        return cwd .. '/bin/python'
+      elseif vim.fn.executable(cwd .. '/bin/python') == 1 then
+        return cwd .. '/bin/python'
       else
-        return python_path
+        return '/bin/python'
       end
     end;
   },
