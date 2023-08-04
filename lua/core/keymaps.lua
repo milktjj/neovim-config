@@ -19,7 +19,14 @@ keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {sil
 keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
 keymap.set({"i", "n", "v"}, "<F11>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
 keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
-keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
+-- keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
+
+local opts = { noremap = true, silent = true }
+-- Save breakpoints to file automatically.
+keymap.set({"i","n", "v"}, "<F2>", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", opts)
+keymap.set({"i","n", "v"}, "<leader>scd", "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", opts)
+keymap.set({"i", "n", "v"}, "<leader>cab", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
+
 
 keymap.set({"i", "n", "v"}, "<leader><left>", "<C-w>h", {silent = true, noremap = true})
 keymap.set({"i", "n", "v"}, "<leader><Right>", "<C-w>l", {silent = true, noremap = true})
