@@ -63,6 +63,8 @@ local plugins = {
   },
   require('plugins.project'),
   require('plugins.debuger'),
+
+  require('plugins.theme'),
 }
 
 local opts = {}

@@ -2,18 +2,23 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
--- insert mode
--- keymap.set("i", "jk", "<ESC>")
+keymap.set("i", "jk", "<ESC>")
 
--- visual mode
+-- keymap.set({"n", "i"}, "<left>", "<Nop>")
+-- keymap.set({"n", "i"}, "<right>", "<Nop>")
+-- keymap.set({"n", "i"}, "<up>", "<Nop>")
+-- keymap.set({"n", "i"}, "<down>", "<Nop>")
+
+keymap.set("n", "<leader><right>", "<cmd>bn<CR>", { silent = true })
+keymap.set("n", "<leader><left>", "<cmd>bp<CR>", { silent = true })
+
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
--- normal mode
 keymap.set("n", "<leader>sv", "<C-w>v")
 keymap.set("n", "<leader>sh", "<C-w>s")
 
-keymap.set("n", "<leader>nh", "nohl<CR>")
+keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
 keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
 keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
@@ -24,13 +29,16 @@ keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.step_over()<CR>", {si
 local opts = { noremap = true, silent = true }
 -- Save breakpoints to file automatically.
 keymap.set({"i","n", "v"}, "<F2>", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", opts)
-keymap.set({"i","n", "v"}, "<leader>scd", "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", opts)
-keymap.set({"i", "n", "v"}, "<leader>cab", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
+keymap.set({"i","n", "v"}, "<leader>scd", "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", opts) keymap.set({"i", "n", "v"}, "<leader>cab", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
 
 
-keymap.set({"i", "n", "v"}, "<leader><left>", "<C-w>h", {silent = true, noremap = true})
-keymap.set({"i", "n", "v"}, "<leader><Right>", "<C-w>l", {silent = true, noremap = true})
-keymap.set({"i", "n", "v"}, "<leader><Up>", "<C-w>k", {silent = true, noremap = true})
-keymap.set({"i", "n", "v"}, "<leader><Down>", "<C-w>j", {silent = true, noremap = true})
+-- keymap.set({"i", "n", "v"}, "<leader><left>", "<C-w>h", {silent = true, noremap = true})
+-- keymap.set({"i", "n", "v"}, "<leader><Right>", "<C-w>l", {silent = true, noremap = true})
+-- keymap.set({"i", "n", "v"}, "<leader><Up>", "<C-w>k", {silent = true, noremap = true})
+-- keymap.set({"i", "n", "v"}, "<leader><Down>", "<C-w>j", {silent = true, noremap = true})
 
+keymap.set({"i", "n", "v"}, "<leader>h", "<C-w>h", {silent = true, noremap = true})
+keymap.set({"i", "n", "v"}, "<leader>l", "<C-w>l", {silent = true, noremap = true})
+keymap.set({"i", "n", "v"}, "<leader>k", "<C-w>k", {silent = true, noremap = true})
+keymap.set({"i", "n", "v"}, "<leader>j", "<C-w>j", {silent = true, noremap = true})
 

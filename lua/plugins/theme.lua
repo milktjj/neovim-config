@@ -1,8 +1,10 @@
 return {
-	"theniceboy/nvim-deus",
+        --	"theniceboy/nvim-deus",
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
 	lazy = false,
-	priority = 1000,
 	config = function()
-		vim.cmd([[colorscheme deus]])
+                vim.o.background = "dark"
+		vim.cmd([[colorscheme gruvbox]])
 	end,
 }
