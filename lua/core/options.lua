@@ -1,7 +1,6 @@
 local opt = vim.opt
 local fn = vim.fn
 local buffer = vim.b
-local global = vim.g
 
 opt.timeoutlen = 500
 opt.relativenumber = true
@@ -22,7 +21,7 @@ opt.undofile = true
 opt.undodir = fn.expand('$HOME/.local/share/nvim/undo')
 opt.exrc = true
 opt.swapfile = false
-opt.completeopt = { "menu", "menuone", "preview" }
+opt.completeopt = { "noselect", "menuone", "preview" }
 opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
 opt.splitright = true

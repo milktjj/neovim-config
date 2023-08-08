@@ -20,16 +20,14 @@ keymap.set("n", "<leader>sh", "<C-w>s")
 
 keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
-keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
-keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
-keymap.set({"i", "n", "v"}, "<F11>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
-keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
--- keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
 
 local opts = { noremap = true, silent = true }
 -- Save breakpoints to file automatically.
-keymap.set({"i","n", "v"}, "<F2>", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", opts)
-keymap.set({"i","n", "v"}, "<leader>scd", "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", opts) keymap.set({"i", "n", "v"}, "<leader>cab", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
+keymap.set({ "i", "n", "v" }, "<F1>", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", opts)
+keymap.set({ "n", "v" }, "<leader>scd",
+    "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", opts)
+keymap.set({ "n", "v" }, "<leader>cab", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>",
+    opts)
 
 
 -- keymap.set({"i", "n", "v"}, "<leader><left>", "<C-w>h", {silent = true, noremap = true})
@@ -37,8 +35,11 @@ keymap.set({"i","n", "v"}, "<leader>scd", "<cmd>lua require('persistent-breakpoi
 -- keymap.set({"i", "n", "v"}, "<leader><Up>", "<C-w>k", {silent = true, noremap = true})
 -- keymap.set({"i", "n", "v"}, "<leader><Down>", "<C-w>j", {silent = true, noremap = true})
 
-keymap.set({"i", "n", "v"}, "<leader>h", "<C-w>h", {silent = true, noremap = true})
-keymap.set({"i", "n", "v"}, "<leader>l", "<C-w>l", {silent = true, noremap = true})
-keymap.set({"i", "n", "v"}, "<leader>k", "<C-w>k", {silent = true, noremap = true})
-keymap.set({"i", "n", "v"}, "<leader>j", "<C-w>j", {silent = true, noremap = true})
+keymap.set({ "n", "v" }, "<leader>h", "<C-w>h", { silent = true, noremap = true })
+keymap.set({ "n", "v" }, "<leader>l", "<C-w>l", { silent = true, noremap = true })
+keymap.set({ "n", "v" }, "<leader>k", "<C-w>k", { silent = true, noremap = true })
+keymap.set({ "n", "v" }, "<leader>j", "<C-w>j", { silent = true, noremap = true })
 
+keymap.set("n", "<leader>t", "<cmd>Lspsaga term_toggle<cr>", { silent = true, noremap = true })
+
+require("plugins.lsp.trouble-keymap")

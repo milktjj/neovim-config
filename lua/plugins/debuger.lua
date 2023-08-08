@@ -1,6 +1,7 @@
 return {
     {
         "mfussenegger/nvim-dap",
+        event = "VeryLazy",
         dependencies = {
             {
                 "ravenxrz/DAPInstall.nvim",
@@ -16,6 +17,14 @@ return {
             "nvim-dap-virtual-text",
             "nvim-telescope/telescope-dap.nvim",
             "Weissle/persistent-breakpoints.nvim",
+        },
+        keys = {
+            { "<F2>", "<cmd>lua require'dap'.continue()<CR>"},
+            { "<F3>", "<cmd>lua require'dap'.step_over()<CR>"},
+            { "<F4>", "<cmd>lua require'dap'.step_into()<CR>"},
+            { "<F5>", "<cmd>lua require'dap'.step_over()<CR>"},
+            -- keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
+
         },
         config = function()
             local dap, dapui = require("dap"), require("dapui")
@@ -39,14 +48,6 @@ return {
                 load_breakpoints_event = { "BufReadPost" }
             }
 
-            -- dap setup
-            -- local m = { noremap = true }
-            -- vim.keymap.set("n", "<leader>'q", ":Telescope dap<CR>", m)
-            -- vim.keymap.set("n", "<leader>'t", dap.toggle_breakpoint, m)
-            -- vim.keymap.set("n", "<leader>'n", dap.continue, m)
-            -- vim.keymap.set("n", "<leader>'s", dap.terminate, m)
-            -- vim.keymap.set("n", "<leader>'du", dapui.toggle, m)
-            --
             vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939', bg = '#31353f' })
             vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef', bg = '#31353f' })
             vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379', bg = '#31353f' })
@@ -63,7 +64,7 @@ return {
                 linehl = 'DapLogPoint',
                 numhl = 'DapLogPoint'
             })
-            -- vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+            vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
         end
     }
 }
