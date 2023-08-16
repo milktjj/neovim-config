@@ -17,7 +17,8 @@ local plugins = {
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
-        lazy = false,
+        event = "VeryLazy",
+        lazy = true,
         dependencies = {
             "milktjj/nvim-web-devicons-nvim-tree",
         },
@@ -25,12 +26,11 @@ local plugins = {
             require("nvim-tree").setup {}
         end,
     },
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     "p00f/nvim-ts-rainbow",
 
     -- lsp
     require("plugins.lsp.lsp-setup"),
-    { "folke/neodev.nvim", opts = {} },
     -- complete
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
@@ -45,7 +45,8 @@ local plugins = {
     "lewis6991/gitsigns.nvim",
 
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.2',
         -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
@@ -56,4 +57,3 @@ local plugins = {
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-
