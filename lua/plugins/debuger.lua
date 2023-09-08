@@ -19,10 +19,10 @@ return {
             "Weissle/persistent-breakpoints.nvim",
         },
         keys = {
-            { "<F2>", "<cmd>lua require'dap'.continue()<CR>"},
-            { "<F3>", "<cmd>lua require'dap'.step_over()<CR>"},
-            { "<F4>", "<cmd>lua require'dap'.step_into()<CR>"},
-            { "<F5>", "<cmd>lua require'dap'.step_over()<CR>"},
+            { "<F2>", "<cmd>lua require'dap'.continue()<CR>" },
+            { "<F3>", "<cmd>lua require'dap'.step_over()<CR>" },
+            { "<F4>", "<cmd>lua require'dap'.step_into()<CR>" },
+            { "<F5>", "<cmd>lua require'dap'.step_over()<CR>" },
             -- keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
 
         },
@@ -32,10 +32,10 @@ return {
                 dapui.open()
             end
             dap.listeners.before.event_terminated["dapui_config"] = function()
-                dapui.close()
+                -- dapui.close()
             end
             dap.listeners.before.event_exited["dapui_config"] = function()
-                dapui.close()
+                -- dapui.close()
             end
 
             require('lsp.python')
@@ -44,7 +44,7 @@ return {
             require("nvim-dap-virtual-text").setup()
 
             -- breakpoints save setup
-            require('persistent-breakpoints').setup{
+            require('persistent-breakpoints').setup {
                 load_breakpoints_event = { "BufReadPost" }
             }
 
@@ -64,7 +64,8 @@ return {
                 linehl = 'DapLogPoint',
                 numhl = 'DapLogPoint'
             })
-            vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+            vim.fn.sign_define('DapStopped',
+                { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
         end
     }
 }

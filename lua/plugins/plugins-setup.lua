@@ -38,6 +38,26 @@ local plugins = {
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-buffer",
+    {
+        "olexsmir/gopher.nvim",
+        event = "VeryLazy",
+        lazy = true,
+        keys = {
+            { "<leader>gaj", mode = { "n", "x", "o" }, "<cmd>GoTagAdd json",             desc = "add json tag" },
+        },
+        config = function()
+            require("gopher").setup {
+                commands = {
+                    go = "go",
+                    gomodifytags = "gomodifytags",
+                    gotests = "~/go/bin/gotests", -- also you can set custom command path
+                    impl = "impl",
+                    iferr = "iferr",
+                },
+            }
+        end
+    },
 
     "numToStr/Comment.nvim",
 
