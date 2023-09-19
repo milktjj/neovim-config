@@ -44,7 +44,7 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
         keys = {
-            { "<leader>gaj", mode = { "n", "x", "o" }, "<cmd>GoTagAdd json",             desc = "add json tag" },
+            { "<leader>gaj", mode = { "n", "x", "o" }, "<cmd>GoTagAdd json", desc = "add json tag" },
         },
         config = function()
             require("gopher").setup {
@@ -63,11 +63,22 @@ local plugins = {
 
     "akinsho/bufferline.nvim",
     "lewis6991/gitsigns.nvim",
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
 
+            "nvim-lua/plenary.nvim",         -- required
+            "nvim-telescope/telescope.nvim", -- optional
+            "sindrets/diffview.nvim",        -- optional
+            "ibhagwan/fzf-lua",              -- optional
+        },
+        config = true
+    },
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.2',
+        -- tag = '0.1.x',
         -- or                              , branch = '0.1.x',
+        branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     require('plugins.project'),

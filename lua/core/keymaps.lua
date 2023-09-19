@@ -9,6 +9,14 @@ keymap.set("i", "jk", "<ESC>")
 -- keymap.set({"n", "i"}, "<up>", "<Nop>")
 -- keymap.set({"n", "i"}, "<down>", "<Nop>")
 
+vim.keymap.set('n', '<C-s>', ':w<CR>')          -- Save
+vim.keymap.set('v', '<C-c>', '"+y')             -- Copy
+vim.keymap.set('n', '<C-v>', '"+P')             -- Paste normal mode
+vim.keymap.set('v', '<C-v>', '"+P')             -- Paste visual mode
+vim.keymap.set('c', '<C-v>', '<C-R>+')          -- Paste command mode
+vim.keymap.set('i', '<C-v>', '<ESC>l"+Pli')     -- Paste insert mode
+
+
 keymap.set("n", "<leader><right>", "<cmd>bn<CR>", { silent = true })
 keymap.set("n", "<leader><left>", "<cmd>bp<CR>", { silent = true })
 
@@ -40,6 +48,6 @@ keymap.set({ "n", "v" }, "<leader>l", "<C-w>l", { silent = true, noremap = true 
 keymap.set({ "n", "v" }, "<leader>k", "<C-w>k", { silent = true, noremap = true })
 keymap.set({ "n", "v" }, "<leader>j", "<C-w>j", { silent = true, noremap = true })
 
-keymap.set("n", "<leader>t", "<cmd>Lspsaga term_toggle<cr>", { silent = true, noremap = true })
+keymap.set({ "n", "t" }, "<leader>t", "<cmd>Lspsaga term_toggle<cr>", { silent = true, noremap = true })
 
 require("plugins.lsp.trouble-keymap")

@@ -28,6 +28,12 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
   on_attach = my_on_attach,
+sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_root = true
+  },
 })
 
 local keymap = vim.keymap
