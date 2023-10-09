@@ -9,7 +9,7 @@ keymap.set("i", "jk", "<ESC>")
 -- keymap.set({"n", "i"}, "<up>", "<Nop>")
 -- keymap.set({"n", "i"}, "<down>", "<Nop>")
 
-vim.keymap.set('n', '<C-s>', ':w<CR>')          -- Save
+-- vim.keymap.set('n', '<C-s>', ':w<CR>')          -- Save
 vim.keymap.set('v', '<C-c>', '"+y')             -- Copy
 vim.keymap.set('n', '<C-v>', '"+P')             -- Paste normal mode
 vim.keymap.set('t', '<C-v>', '"+P')             -- Paste normal mode

@@ -1,12 +1,12 @@
 return {
     "neovim/nvim-lspconfig",
-    event = {"BufReadPost", "BufNewFile"},
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "glepnir/lspsaga.nvim",
     },
-    config = function ()
+    config = function()
         require("mason").setup({
             ui = {
                 icons = {
@@ -19,7 +19,7 @@ return {
 
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "lua_ls", "pylsp", "gopls"
+                "lua_ls", "pylsp", "gopls", "tsserver",
             },
         })
 
@@ -32,6 +32,10 @@ return {
             capabilities = capabilities,
         }
 
+        lspconfig.tsserver.setup {
+            capabilities = capabilities,
+        }
+
         lspconfig.pylsp.setup {
             capabilities = capabilities,
         }
@@ -39,18 +43,20 @@ return {
         lspconfig.gopls.setup {
             capabilities = capabilities,
             settings = {
-      gopls = {
-      experimentalPostfixCompletions = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
-     },
-     staticcheck = true,
-    },
-    },
+                gopls = {
+                    experimentalPostfixCompletions = true,
+                    analyses = {
+                        unusedparams = true,
+                        shadow = true,
+                    },
+                    staticcheck = true,
+                },
+            },
         }
 
-        lspconfig.csharp_ls.setup {}
+        lspconfig.csharp_ls.setup {
+            capabilities = capabilities,
+        }
 
         -- Use LspAttach autocommand to only map
         -- the following keys
@@ -83,6 +89,5 @@ return {
                 end, opts)
             end,
         })
-
     end
 }

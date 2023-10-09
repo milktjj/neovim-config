@@ -125,5 +125,39 @@ return {
         },
         config = {
         },
-    }
+    },
+    {
+        "nvim-neorg/neorg",
+        event = "VeryLazy",
+        build = ":Neorg sync-parsers",
+        dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
+        config = function()
+            require("neorg").setup {
+                load = {
+                    ["core.defaults"] = {},  -- Loads default behaviour
+                    ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                    ["core.completion"] = {
+                        config = {
+                            engine = "nvim-cmp",
+                        }
+                    },
+                   ["core.integrations.telescope"] = {},
+                    ["core.dirman"] = { -- Manages Neorg workspaces
+                        config = {
+                            workspaces = {
+                                notes = "~/notes",
+                            },
+                        },
+                    },
+                },
+            }
+        end,
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        event = "VeryLazy",
+        config = function ()
+            require('nvim-ts-autotag').setup()
+        end
+    },
 }

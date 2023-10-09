@@ -4,7 +4,7 @@ local buffer = vim.b
 
 
 if vim.g.neovide then
-    vim.o.guifont = "FiraCode Nerd Font:h11"
+    vim.o.guifont = "MesloLGMDZ Nerd Font:h12"
     vim.g.neovide_transparency = 0.95
 
     vim.g.neovide_padding_top = 0

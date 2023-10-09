@@ -27,7 +27,7 @@ local plugins = {
         end,
     },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    "p00f/nvim-ts-rainbow",
+    "HiPhish/nvim-ts-rainbow2",
 
     -- lsp
     require("plugins.lsp.lsp-setup"),

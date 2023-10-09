@@ -1,5 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "vim", "bash", "go", "c", "cpp", "javascript", "json", "lua", "python", "markdown", "markdown_inline" },
+    ensure_installed = { "vim", "bash", "go", "c", "cpp", "javascript", "json", "lua", "python", "markdown",
+        "markdown_inline", "javascript", "html" },
 
     highlight = { enable = true },
     indent = { enable = true },
@@ -12,4 +13,3 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 require 'nvim-treesitter.install'.compilers = { "gcc" }
-

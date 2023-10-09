@@ -16,7 +16,7 @@ dap.adapters.python = function(cb, config)
     else
         cb({
             type = 'executable',
-            command = '/usr/bin/python3.10',
+            command = '/usr/bin/python3',
             args = { '-m', 'debugpy.adapter' },
             options = {
                 source_filetype = 'python',
@@ -40,12 +40,12 @@ dap.configurations.python = {
             -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
             -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
             local cwd = vim.fn.getcwd()
-            if vim.fn.executable(cwd .. '/usr/bin/python3.10') == 1 then
+            if vim.fn.executable(cwd .. '/usr/bin/python3') == 1 then
                 return cwd .. '/bin/python'
-            elseif vim.fn.executable(cwd .. '/usr/bin/python3.10') == 1 then
-                return cwd .. '/usr/bin/python3.10'
+            elseif vim.fn.executable(cwd .. '/usr/bin/python3') == 1 then
+                return cwd .. '/usr/bin/python3'
             else
-                return '/usr/bin/python3.10'
+                return '/usr/bin/python3'
             end
         end,
     },
