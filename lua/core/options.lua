@@ -4,7 +4,7 @@ local buffer = vim.b
 
 
 if vim.g.neovide then
-    vim.o.guifont = "MesloLGMDZ Nerd Font:h12"
+    vim.o.guifont = "MesloLGMDZ Nerd Font:h11"
     vim.g.neovide_transparency = 0.95
 
     vim.g.neovide_padding_top = 0
@@ -25,7 +25,7 @@ if vim.g.neovide then
     vim.g.neovide_refresh_rate_idle = 5
 
     vim.g.neovide_confirm_quit = true
-    vim.g.neovide_fullscreen = false 
+    vim.g.neovide_fullscreen = false
 
     vim.g.neovide_cursor_animation_length = 0.03
 
@@ -43,6 +43,11 @@ if vim.g.neovide then
     end)
 end
 
+local os_info = vim.loop.os_uname()
+
+if os_info.sysname == "Linux" and os_info.release:find("WSL") then
+    vim.keymap.set({"n", "v"}, "<C-m>", ":%s/\r//g", { noremap = true, silent = true })
+end
 
 opt.timeoutlen = 500
 opt.relativenumber = true

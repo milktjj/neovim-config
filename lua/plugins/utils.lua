@@ -132,10 +132,10 @@ return {
         build = ":Neorg sync-parsers",
         dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
         config = function()
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.norg"},
-  command = "set conceallevel=3"
-})
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+                pattern = { "*.norg" },
+                command = "set conceallevel=3"
+            })
             require("neorg").setup {
                 load = {
                     ["core.defaults"] = {}, -- Loads default behaviour
@@ -153,7 +153,8 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
                     ["core.dirman"] = { -- Manages Neorg workspaces
                         config = {
                             workspaces = {
-                                notes = "~/notes",
+                                notes = "~/neorg-workspace/notes",
+                                journal = "~/neorg-workspace/journal",
                             },
                         },
                     },
