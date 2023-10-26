@@ -76,6 +76,6 @@ opt.splitbelow = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.termguicolors = true
-opt.signcolumn = "yes"
+opt.signcolumn = "yes:2"
 
 buffer.fileencoding = "utf-8"

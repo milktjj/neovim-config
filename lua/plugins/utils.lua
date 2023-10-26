@@ -155,9 +155,17 @@ return {
                             workspaces = {
                                 notes = "~/neorg-workspace/notes",
                                 journal = "~/neorg-workspace/journal",
+                                default = "~/neorg-workspace/",
                             },
+                            default_workspace = "default",
                         },
                     },
+                    ["core.keybinds"] = {
+                        config = {
+                            neorg_leader = "<LocalLeader>",
+                            default_keybinds = true,
+                        }
+                    }
                 },
             }
         end,
